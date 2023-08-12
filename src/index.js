@@ -30,8 +30,7 @@ app.listen(9898 , async () => {
     // await tweet.save();
     // console.log(tweet);
 
-    const tweet = await tweetrepo.createTweet({content : "with hooks"});
-    console.log(tweet);
+    
 
 })
 
