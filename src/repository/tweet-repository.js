@@ -47,17 +47,17 @@ class TweetRepository {
         }
     }
 
-    async updateTweet(tweetId , data){
-        try {
-            // const tweet = await Tweet.findByIdAndUpdate(tweetId , data);
-            //when i am using the above line then i am getting the data which was there before
-            //the updation but i want the newly updated data as a result and below will give it
-            const tweet = await Tweet.findByIdAndUpdate(tweetId,data,{new : true});
-            return tweet;
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    // async updateTweet(tweetId , data){
+    //     try {
+    //         // const tweet = await Tweet.findByIdAndUpdate(tweetId , data);
+    //         //when i am using the above line then i am getting the data which was there before
+    //         //the updation but i want the newly updated data as a result and below will give it
+    //         const tweet = await Tweet.findByIdAndUpdate(tweetId,data,{new : true});
+    //         return tweet;
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
     async deleteTweet(tweetId){
         try {
