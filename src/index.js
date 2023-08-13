@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
 const connect = require('./config/database');
-const tweetRepo = require('./repository/tweet-repository');
-const comment = require('./models/comments');
+const Repo = require('./services/tweet-service');
 
 app.listen(9898 , async () => {
     console.log('server started');
@@ -18,7 +17,7 @@ app.listen(9898 , async () => {
     // getTweet.userEmail = "b@c.com";
     // await getTweet.save();
     // console.log(getTweet);
-    const tweetrepo = new tweetRepo();
+    const repo = new Repo();
     // const tweet = await tweetrepo.createTweet({content : "some random tweet"});
     // tweet.comments.push({content : "this is mys comment"});
     // await tweet.save();
@@ -29,8 +28,10 @@ app.listen(9898 , async () => {
     // tweet.comments.push(coment);
     // await tweet.save();
     // console.log(tweet);
-
-    
+    const tags = await repo.create({
+        content : "this is after #coding really #Excited, it is going to be #Fun"
+    })
+    console.log(tags);
 
 })
 
