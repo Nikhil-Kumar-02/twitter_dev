@@ -1,7 +1,14 @@
 import express from 'express';
 const app = express();
 import {connect} from './config/database.js';
-import Repo from './services/tweet-service.js';
+import apiRoutes from './routes/index.js';
+import bodyParser from 'body-parser';
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : true}));
+
+app.use('/api' , apiRoutes);
+
 
 app.listen(9898 , async () => {
     console.log('server started');
@@ -17,7 +24,7 @@ app.listen(9898 , async () => {
     // getTweet.userEmail = "b@c.com";
     // await getTweet.save();
     // console.log(getTweet);
-    const repo = new Repo();
+    // const repo = new Repo();
     // const tweet = await tweetrepo.createTweet({content : "some random tweet"});
     // tweet.comments.push({content : "this is mys comment"});
     // await tweet.save();
@@ -28,10 +35,10 @@ app.listen(9898 , async () => {
     // tweet.comments.push(coment);
     // await tweet.save();
     // console.log(tweet);
-    const tags = await repo.create({
-        content : "my other #CODe #Works or #NOT"
-    })
-    console.log(tags);
+    // const tags = await repo.create({
+    //     content : "my other #CODe #Works or #NOT"
+    // })
+    // console.log(tags);
 
 })
 
