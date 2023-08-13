@@ -1,7 +1,7 @@
-const express = require('express');
+import express from 'express';
 const app = express();
-const connect = require('./config/database');
-const Repo = require('./services/tweet-service');
+import {connect} from './config/database.js';
+import Repo from './services/tweet-service.js';
 
 app.listen(9898 , async () => {
     console.log('server started');
@@ -29,7 +29,7 @@ app.listen(9898 , async () => {
     // await tweet.save();
     // console.log(tweet);
     const tags = await repo.create({
-        content : "this is after #coding really #Excited, it is going to be #Fun"
+        content : "done with #refactor, was #Fun"
     })
     console.log(tags);
 
