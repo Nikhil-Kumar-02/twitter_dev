@@ -29,7 +29,7 @@ app.listen(9898 , async () => {
     // await tweet.save();
     // console.log(tweet);
     const tags = await repo.create({
-        content : "done with #refactor, was #Fun"
+        content : "my other #CODe #Works or #NOT"
     })
     console.log(tags);
 

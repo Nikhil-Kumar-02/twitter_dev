@@ -14,7 +14,7 @@ class TweetService{
 
         const tags = content.match(/#[a-zA-Z0-9_]+/g);
         const title = tags.map((tag) => {
-            return tag.substring(1)
+            return tag.substring(1).toLowerCase()
         });
 
         const alreadyPresentTags = await this.hashtagRepository.findByName(title);
