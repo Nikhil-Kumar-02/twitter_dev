@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+const saltRounds = 8;
 
 const userSchema = new mongoose.Schema({
     email : {
@@ -15,6 +17,14 @@ const userSchema = new mongoose.Schema({
         required : true
     }
 }, {timestamps : true});
+
+
+userSchema.pre('save' , function(next){
+    const salt = bcrypt.genSaltSync(saltRounds);
+    const hashedPassword = bcrypt.hashSync(this.password, salt);
+    this.password = hashedPassword;
+    next();
+})
 
 const User = mongoose.model('User' , userSchema);
 
