@@ -42,19 +42,19 @@ app.listen(9898 , async () => {
     // })
     // console.log(tags);
 
-    const userRepository = new UserRepository();
-    const likeService = new LikeService();
-    const tweetRepository = new TweetRepository();
+    // const userRepository = new UserRepository();
+    // const likeService = new LikeService();
+    // const tweetRepository = new TweetRepository();
 
-    const tweet = await tweetRepository.getSomeTweets(4,0);
+    // const tweet = await tweetRepository.getSomeTweets(4,0);
 
-    const user =await userRepository.getAll({
-        email : "nikhil@gmail.com",
-        password : "123456",
-        name : "nick"
-    })
+    // const user =await userRepository.getAll({
+    //     email : "nikhil@gmail.com",
+    //     password : "123456",
+    //     name : "nick"
+    // })
 
-    await likeService.toggleLike(tweet[0].id , 'Tweet' , user[0].id);
+    // await likeService.toggleLike(tweet[0].id , 'Tweet' , user[0].id);
 
 
 })

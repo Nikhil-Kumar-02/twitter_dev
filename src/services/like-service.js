@@ -32,7 +32,7 @@ class LikeService{
             var isAdded = false;
         }
         else{
-            //we have to add a new like
+            //we have to add a new like 
             const newLike = await this.likeRepository.create({
                 user : userId,
                 likeable : modelId,
