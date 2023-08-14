@@ -66,6 +66,11 @@ class TweetService{
     /*
         this is my #first #tweet. i am really #excited 
     */
+
+    async get(tweetId){
+        const tweet = await this.tweetRepository.getTweetwithComments(tweetId);
+        return tweet;
+    }
 }
 
 export default TweetService;

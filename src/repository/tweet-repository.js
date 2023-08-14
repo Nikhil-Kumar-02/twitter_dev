@@ -28,7 +28,12 @@ class TweetRepository extends CrudRepository{
 
     async getTweetwithComments(tweetId){
         try {
-            const tweet = await Tweet.findById(tweetId).populate({path : 'comments'});
+            const tweet = await Tweet.findById(tweetId).populate({
+                path : 'comments',
+                populate : {
+                    path : 'comments'
+                }
+            });
             // const tweet = await Tweet.findById(tweetId).populate({path : 'comments'}).lean();
             //lean will help us return simple javascript object and not mongoose object a mongoose object has
             //getter setter functionalities and everytime returning mongose object blindly is not optimised
