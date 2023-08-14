@@ -3,6 +3,8 @@ const app = express();
 import {connect} from './config/database.js';
 import apiRoutes from './routes/index.js';
 import bodyParser from 'body-parser';
+import {UserRepository , TweetRepository} from './repository/index.js';
+import LikeService from './services/like-service.js';
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
@@ -39,6 +41,21 @@ app.listen(9898 , async () => {
     //     content : "my other #CODe #Works or #NOT"
     // })
     // console.log(tags);
+
+    const userRepository = new UserRepository();
+    const likeService = new LikeService();
+    const tweetRepository = new TweetRepository();
+
+    const tweet = await tweetRepository.getSomeTweets(4,0);
+
+    const user =await userRepository.getAll({
+        email : "nikhil@gmail.com",
+        password : "123456",
+        name : "nick"
+    })
+
+    await likeService.toggleLike(tweet[0].id , 'Tweet' , user[0].id);
+
 
 })
 
